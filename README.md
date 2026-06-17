@@ -1,4 +1,4 @@
-# Paisagismo Cláudia
+# Paisagismo Noely
 
 Projeto de paisagismo residencial de alto padrão apresentando mais de 980 plantas distribuídas em 28 espécies, com visualizações em 3D dos espaços projetados.
 
@@ -17,7 +17,7 @@ Este projeto integra a arquitetura da residência com amplos jardins ornamentais
 ## 🚀 Visualizar o Projeto
 
 Acesse a página web do relatório em:
-[https://aikiesan.github.io/Paisagismo_Claudia/](https://aikiesan.github.io/Paisagismo_Claudia/)
+[https://aikiesan.github.io/Paisagismo_Paulo/](https://aikiesan.github.io/Paisagismo_Paulo/)
 
 ---
 
@@ -70,6 +70,8 @@ Salve as fotos das plantas nessa pasta com os seguintes **nomes exatos de arquiv
 - JavaScript Vanilla (Carregamento dinâmico, Lightbox e controle de navegação móvel)
 - GitHub Pages (Deploy automatizado com GitHub Actions)
 
-**Paisagismo:** Paulo Perissoto - Arquiteto e Paisagista
+**Cliente:** Noely
+**Arquiteta:** Claudia
+**Paisagista e Arquiteto:** Paulo Perissoto
 **Modelagem e Renderização:** Lucas Nakamura Cerejo
 **Ano:** 2026
