@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paisagismo — Cláudia</title>
+  <meta name="description" content="Projeto de paisagismo residencial com 28 espécies selecionadas. Paisagismo: Paulo Perissoto - Arquiteto e Paisagista. Renderização: Lucas Nakamura Cerejo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design System ── */
+    :root {
+      --color-bg-primary:    #F5F2EB;
+      --color-bg-secondary:  #E6DFD3;
+      --color-bg-card:       #FAF8F5;
+      --color-text-primary:  #1A2F1C;
+      --color-text-secondary:#4D3E35;
+      --color-text-muted:    #807166;
+      --color-accent:        #D97236;
+      --color-accent-light:  #E69865;
+      --color-accent-dark:   #A65324;
+      --color-olive:         #6E7F5C;
+      --color-border:        #D0C5B5;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+      --radius-card:  16px;
+      --shadow-card:  0 4px 20px rgba(26, 47, 28, 0.06);
+      --shadow-hover: 0 12px 40px rgba(217, 114, 54, 0.18);
+      --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Scroll Progress Bar ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Navbar ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(245, 242, 235, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(208, 197, 181, 0.4);
+      transition: var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(245, 242, 235, 0.95);
+      box-shadow: 0 2px 20px rgba(26, 47, 28, 0.06);
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--color-text-primary);
+    }
+    .nav-logo span { color: var(--color-accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text-primary);
+      transition: var(--transition);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(245, 242, 235, 0.98);
+        backdrop-filter: blur(14px);
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateY(-110%);
+        transition: transform var(--transition);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 999;
+      }
+      .nav-links.open { transform: translateY(0); }
+      .nav-links a { font-size: 0.9rem; }
+    }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(110, 127, 92, 0.2), rgba(26, 47, 28, 0.45)),
+        linear-gradient(180deg, rgba(245, 242, 235, 0.05) 0%, rgba(26, 47, 28, 0.35) 100%);
+      z-index: 1;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 70%, rgba(110, 127, 92, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 30%, rgba(217, 114, 54, 0.12) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+      will-change: transform;
+    }
+    .hero-pre-title {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 245, 0.92);
+      text-shadow: 0 1px 10px rgba(26, 47, 28, 0.6);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: #FAF8F5;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 30px rgba(26, 47, 28, 0.3);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-accent-light);
+    }
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(250, 248, 245, 0.8);
+      letter-spacing: 0.05em;
+      margin-bottom: 2.5rem;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-accent-light), transparent);
+      margin: 0 auto 2rem;
+    }
+    .hero-credits {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 245, 0.65);
+      line-height: 2;
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(250, 248, 245, 0.5);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+    .hero-scroll-hint svg { width: 20px; height: 20px; opacity: 0.6; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Section Shared ── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--color-accent); }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0 3rem;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+    }
+    .section-divider::after {
+      background: linear-gradient(270deg, var(--color-accent), transparent);
+    }
+    .section-divider-icon {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* ── Fade-in Animation ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Introdução Section ── */
+    #introducao {
+      background: var(--color-bg-primary);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .intro-side {
+      position: sticky;
+      top: 100px;
+    }
+    .intro-text p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .intro-text p:last-child { margin-bottom: 0; }
+    .intro-text strong { color: var(--color-text-primary); font-weight: 700; }
+    .intro-tag {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid var(--color-accent);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .intro-tags { margin-top: 2rem; }
+    @media (max-width: 900px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .intro-side { position: static; }
+    }
+
+    /* ── Planta Baixa Section ── */
+    #planta {
+      background: var(--color-bg-secondary);
+    }
+    .planta-intro {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+    .planta-intro strong {
+      color: var(--color-text-primary);
+      font-weight: 700;
+    }
+    
+    /* Before/After Slider */
+    .slider-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .comparison-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-border);
+      user-select: none;
+    }
+    .comparison-slider img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      background: var(--color-bg-secondary);
+    }
+    .image-container {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+    }
+    .foreground-image {
+      width: 50%;
+      border-right: 2px solid #fff;
+    }
+    .slider-range {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+      width: 100%; height: 100%;
+      margin: 0;
+    }
+    .slider-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .slider-handle {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 46px; height: 46px;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      border: 2px solid #fff;
+      z-index: 6;
+      transition: transform 0.25s ease;
+    }
+    .comparison-slider:hover .slider-handle {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .slider-handle svg {
+      width: 20px; height: 20px;
+    }
+    .slider-label {
+      position: absolute;
+      bottom: 1.2rem;
+      padding: 0.4rem 0.9rem;
+      background: rgba(26, 47, 28, 0.85);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 6;
+      backdrop-filter: blur(4px);
+    }
+    .before-label { left: 1.2rem; }
+    .after-label { right: 1.2rem; }
+
+    /* ── Espécies Section ── */
+    #especies {
+      background: var(--color-bg-secondary);
+    }
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) { .species-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .species-grid { grid-template-columns: 1fr; } }
+
+    .species-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(208, 197, 181, 0.5);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .species-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .species-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: var(--color-bg-secondary);
+    }
+    .species-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-border));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--color-olive);
+      opacity: 0.7;
+    }
+    .species-card-img-placeholder-span {
+      font-size: 0.72rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+      color: var(--color-text-muted);
+    }
+    .species-card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .species-card-location {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-olive);
+    }
+    .species-card-name {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+    }
+    .species-card-sci {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+    .species-card-desc {
+      font-size: 0.83rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+      flex: 1;
+    }
+    .species-card-qty {
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-top: 0.6rem;
+    }
+
+    /* ── 3D Renders Section ── */
+    #renders {
+      background: var(--color-bg-primary);
+    }
+    .renders-intro {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+    .masonry {
+      columns: 3;
+      column-gap: 1.2rem;
+    }
+    @media (max-width: 1024px) { .masonry { columns: 2; } }
+    @media (max-width: 600px)  { .masonry { columns: 1; } }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .masonry-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .masonry-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .masonry-item:hover img { transform: scale(1.03); }
+    .masonry-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 47, 28, 0.5) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    .masonry-item:hover .overlay { opacity: 1; }
+    .overlay-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 245, 0.85);
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 25, 16, 0.96);
+      z-index: 9000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #lightbox.active { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(90vw, 1100px);
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+    }
+    .lightbox-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(217, 114, 54, 0.85);
+      border: none;
+      color: #FAF8F5;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9010;
+    }
+    .lightbox-btn:hover { background: var(--color-accent-dark); }
+    #lightbox-prev { left: 1.5rem; }
+    #lightbox-next { right: 1.5rem; }
+    #lightbox-close {
+      position: fixed;
+      top: 1.5rem; right: 1.5rem;
+      background: rgba(26, 47, 28, 0.7);
+      border: none;
+      color: rgba(250, 248, 245, 0.85);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9010;
+    }
+    #lightbox-close:hover { background: rgba(26, 47, 28, 0.95); }
+    #lightbox-counter {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: rgba(250, 248, 245, 0.5);
+      z-index: 9010;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--color-text-primary);
+      color: rgba(250, 248, 245, 0.6);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: rgba(250, 248, 245, 0.85);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .footer-logo span { color: var(--color-accent-light); }
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-accent);
+      margin: 0 auto 1.5rem;
+    }
+    .footer-credits {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      line-height: 2.2;
+      color: rgba(250, 248, 245, 0.5);
+    }
+    .footer-credits strong {
+      color: rgba(250, 248, 245, 0.75);
+      font-weight: 400;
+    }
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: rgba(250, 248, 245, 0.3);
+    }
+
+    /* ── Anchor offset ── */
+    #introducao, #planta, #especies, #renders { scroll-margin-top: 80px; }
+
+    /* ── Side border gradient decoration ── */
+    #especies::before,
+    #renders::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-light), var(--color-olive));
+    }
+
+    /* ── Mobile bottom navigation ── */
+    #bottom-nav { display: none; }
+
+    @media (max-width: 768px) {
+      .hamburger        { display: none !important; }
+      #nav-links        { display: none !important; }
+      body              { padding-bottom: 64px; }
+      #hero             { height: calc(100vh - 132px); min-height: 400px; }
+      .page-section        { display: none; }
+      .page-section.active { display: block; }
+
+      #bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        height: 64px;
+        background: rgba(245, 242, 235, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--color-border);
+        z-index: 1000;
+        justify-content: space-around;
+        align-items: stretch;
+      }
+      .bottom-nav-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-text-muted);
+        font-family: var(--font-body);
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 8px 4px;
+        transition: color var(--transition);
+        position: relative;
+      }
+      .bottom-nav-btn::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 22%; right: 22%;
+        height: 2px;
+        background: var(--color-accent);
+        border-radius: 0 0 2px 2px;
+        opacity: 0;
+        transition: opacity var(--transition);
+      }
+      .bottom-nav-btn.active         { color: var(--color-accent); }
+      .bottom-nav-btn.active::after  { opacity: 1; }
+      .bottom-nav-btn svg {
+        width: 20px; height: 20px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .section-inner { padding: 5.5rem 1.25rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="nav-logo">C <span>•</span> P</div>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#introducao">Projeto</a></li>
+      <li><a href="#especies">Espécies</a></li>
+      <li><a href="#renders">Visualizações</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page: Início (hero + intro + plan comparison) -->
+  <div class="page-section" id="page-inicio">
+
+    <!-- Hero -->
+    <section id="hero" aria-label="Apresentação do projeto">
+      <div class="hero-bg"></div>
+      <div class="hero-content" id="hero-content">
+        <p class="hero-pre-title">Paisagismo Residencial · 2026</p>
+        <h1 class="hero-title">CLÁUDIA</h1>
+        <p class="hero-subtitle">Projeto de Paisagismo Residencial</p>
+        <div class="hero-divider"></div>
+        <p class="hero-credits">
+          Paisagismo: Paulo Perissoto - Arquiteto e Paisagista<br>
+          Visualizações 3D: Lucas Nakamura Cerejo
+        </p>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Explorar</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M6 13l6 6 6-6"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Introdução -->
+    <section id="introducao" aria-labelledby="intro-title">
+      <div class="section-inner">
+        <div class="intro-grid">
+          <div class="intro-side fade-in">
+            <p class="section-label">O Projeto</p>
+            <h2 class="section-title" id="intro-title">Natureza e<br><em>arquitetura em sintonia</em></h2>
+            <div class="section-divider"><span class="section-divider-icon">❧</span></div>
+            <div class="intro-tags">
+              <span class="intro-tag">28 ESPÉCIES</span>
+              <span class="intro-tag">980+ MUDAS</span>
+              <span class="intro-tag">POMAR E HORTA</span>
+            </div>
+          </div>
+          <div class="intro-text fade-in" style="transition-delay: 0.15s">
+            <p>
+              O projeto de paisagismo desenvolvido para a residência de <strong>Cláudia</strong> busca criar 
+              um refúgio tropical sofisticado e integrado. Composto por mais de <strong>980 plantas de 28 espécies diferentes</strong>, 
+              o design equilibra a beleza ornamental com a funcionalidade dos espaços de convivência.
+            </p>
+            <p>
+              A volumetria verde é marcada pela presença vertical de 11 <strong>Paus Mulatos</strong>, que substituem Palmeiras Carpentárias, 
+              contrastando com o exuberante volume foliar do **Guaimbé** e do **Philodendro Ondulatum**. 
+              Na área molhada da piscina, a **Orelha de Elefante** evoca frescor, enquanto maciços densos de **Capim Bambu** 
+              e tapetes de **Agapanthus** estruturam as divisas.
+            </p>
+            <p>
+              O jardim é repleto de detalhes sensoriais e funcionais: um pomar linear no fundo composto por 8 árvores frutíferas, 
+              uma aconchegante área de convívio (Fogo de Chão) abraçada por **Nandinas**, **Gardênias** e um aromático manacá-de-cheiro, 
+              e um pátio central que traz uma <strong>Jabuticabeira escultural</strong> como ponto focal principal envolta por Dinheiro em Penca. 
+              Tudo estruturado com irrigação automatizada e iluminação cênica.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planta Baixa (Before/After Slider) -->
+    <section id="planta" aria-labelledby="planta-title">
+      <div class="section-inner">
+        <div class="fade-in">
+          <p class="section-label">Implantação 2D</p>
+          <h2 class="section-title" id="planta-title">Antes <em>&amp;</em> Depois</h2>
+          <div class="section-divider"><span class="section-divider-icon">❧</span></div>
+          <p class="planta-intro">
+            Deslize a barra central para comparar a planta original da residência com o 
+            <strong>detalhamento de implantação do projeto de paisagismo</strong>.
+          </p>
+        </div>
+        
+        <div class="slider-wrapper fade-in" style="transition-delay: 0.15s">
+          <div class="comparison-slider" id="planta-slider-container">
+            <!-- Background Image: Depois -->
+            <div class="image-container background-image">
+              <img src="public/images/planta_projeto.png" alt="Depois (Com Paisagismo)" loading="lazy" />
+              <span class="slider-label after-label">Com Paisagismo</span>
+            </div>
+            
+            <!-- Foreground Image: Antes -->
+            <div class="image-container foreground-image" id="planta-foreground">
+              <img src="public/images/planta_antes.png" alt="Antes (Sem Paisagismo)" loading="lazy" />
+              <span class="slider-label before-label">Antes</span>
+            </div>
+            
+            <!-- Input Range Controller -->
+            <input type="range" min="0" max="100" value="50" class="slider-range" id="planta-range" aria-label="Controlador de comparação antes e depois" />
+            
+            <!-- Slider Visual Line -->
+            <div class="slider-line" id="planta-line">
+              <div class="slider-handle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-inicio -->
+
+  <!-- Page: Espécies Selecionadas -->
+  <div class="page-section" id="page-especies">
+
+    <!-- Espécies -->
+    <section id="especies" aria-labelledby="especies-title">
+      <div class="section-inner">
+        <div class="fade-in">
+          <p class="section-label">Paleta Vegetal</p>
+          <h2 class="section-title" id="especies-title">Espécies <em>Selecionadas</em></h2>
+          <div class="section-divider"><span class="section-divider-icon">❧</span></div>
+        </div>
+        <div class="species-grid" id="species-grid">
+          <!-- Cards insertados por JavaScript -->
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-especies -->
+
+  <!-- Page: Visualizações 3D -->
+  <div class="page-section" id="page-renders">
+
+    <!-- Visualizações 3D -->
+    <section id="renders" aria-labelledby="renders-title">
+      <div class="section-inner">
+        <div class="fade-in">
+          <p class="section-label">Visualizações 3D</p>
+          <h2 class="section-title" id="renders-title">O Projeto <em>em Imagens</em></h2>
+          <div class="section-divider"><span class="section-divider-icon">❧</span></div>
+          <p class="renders-intro">
+            Visualizações cênicas em 3D de alta definição por <strong>Lucas Nakamura Cerejo</strong>, revelando 
+            o desenvolvimento futuro das espécies e a atmosfera luminosa em todos os recantos da residência.
+          </p>
+        </div>
+        <div class="masonry" id="masonry-gallery">
+          <!-- Imagens insertadas por JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-logo">C <span>•</span> P</div>
+      <div class="footer-divider"></div>
+      <p class="footer-credits">
+        <strong>Paisagismo:</strong> Paulo Perissoto - Arquiteto e Paisagista<br>
+        <strong>Visualizações 3D:</strong> Lucas Nakamura Cerejo
+      </p>
+      <p class="footer-copy">© 2026 — Todos os direitos reservados</p>
+    </footer>
+
+  </div><!-- /page-renders -->
+
+  <!-- Mobile Bottom Navigation -->
+  <nav id="bottom-nav" role="navigation" aria-label="Navegação por seção">
+    <button class="bottom-nav-btn active" data-page="inicio" aria-label="Início">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/>
+        <path d="M9 21V12h6v9"/>
+      </svg>
+      <span>Início</span>
+    </button>
+    <button class="bottom-nav-btn" data-page="renders" aria-label="Visualizações 3D">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+      <span>Renders</span>
+    </button>
+    <button class="bottom-nav-btn" data-page="especies" aria-label="Espécies">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 22V12"/>
+        <path d="M12 12C12 7 7 4 3 6c4 1 7 4 9 6"/>
+        <path d="M12 12c0-5 5-8 9-6-4 1-7 4-9 6"/>
+      </svg>
+      <span>Espécies</span>
+    </button>
+  </nav>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-label="Visualização de imagem" aria-modal="true">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <button id="lightbox-prev" class="lightbox-btn" aria-label="Imagem anterior">&#8592;</button>
+    <button id="lightbox-next" class="lightbox-btn" aria-label="Próxima imagem">&#8594;</button>
+    <button id="lightbox-close" aria-label="Fechar">&#10005;</button>
+    <div id="lightbox-counter"></div>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* ─── Species Data ─── */
+    const SPECIES = [
+      {
+        name: 'Pau Mulato',
+        sci: 'Calycophyllum spruceanum',
+        desc: 'Árvore nativa da Amazônia de fuste esguio e retilíneo. Sua casca externa bronzeada e brilhante descama anualmente, revelando um tronco verde-metálico escultural. Servindo como pontos focais de destaque na fachada e nos fundos, substituem as Palmeiras Carpentárias.',
+        qty: '11 unidades',
+        location: 'Fachada / Pontos Focais',
+        img: 'public/images/species/calycophyllum-spruceanum.webp'
+      },
+      {
+        name: 'Philodendro Guaimbé',
+        sci: 'Thaumatophyllum bipinnatifidum',
+        desc: 'Foliácea tropical com folhas gigantes de recortes profundos e brilhantes. Muito rústico e expressivo, preenche a maior parte dos canteiros laterais criando grandes maciços esculturais e densos.',
+        qty: '85 unidades',
+        location: 'Laterais / Preenchimento de Canteiros',
+        img: 'public/images/species/thaumatophyllum-bipinnatifidum.webp'
+      },
+      {
+        name: 'Philodendro Ondulatum',
+        sci: 'Philodendron undulatum',
+        desc: 'Trepadeira semi-herbácea robusta com grandes folhas onduladas em tons verde-claros. Excelente cobertura vegetal para revestimento de divisórias de tela e muros nas laterais do terreno.',
+        qty: '40 unidades',
+        location: 'Trepadeira / Laterais',
+        img: 'public/images/species/philodendron-undulatum.webp'
+      },
+      {
+        name: 'Russelia Pendente',
+        sci: 'Russelia equisetiformis',
+        desc: 'Arbusto chorão composto por finas hastes que despencam em cascata, repletas de flores vermelhas tubulares apreciadas por beija-flores. Alocadas nas jardineiras curvas e bordas suspensas da garagem.',
+        qty: '12 unidades',
+        location: 'Jardineiras Curvas / Bordas Garagem',
+        img: 'public/images/species/russelia-equisetiformis.webp'
+      },
+      {
+        name: 'Manacá de Cheiro',
+        sci: 'Brunfelsia uniflora',
+        desc: 'Arbusto florífero que colore e perfuma a saída da sauna. Suas flores desabrocham em roxo-azulados e gradualmente clareiam para o branco, cobrindo o arbusto em cores simultâneas com perfume doce marcante.',
+        qty: '3 unidades',
+        location: 'Saída da Sauna',
+        img: 'public/images/species/brunfelsia-uniflora.webp'
+      },
+      {
+        name: 'Plumeria Rubra (Flor do Caribe)',
+        sci: 'Plumeria rubra',
+        desc: 'Pequena árvore de galhos grossos e esculturais de extrema elegância tropical. Produz flores muito perfumadas de centro amarelo nas áreas abertas e ensolaradas do jardim, como pontos focais de cor.',
+        qty: '7 unidades',
+        location: 'Espalhado pelo Jardim (Pontos de Cor)',
+        img: 'public/images/species/plumeria-rubra.webp'
+      },
+      {
+        name: 'Orelha de Elefante',
+        sci: 'Alocasia macrorrhiza',
+        desc: 'Foliácea de folhas gigantes em formato de escudo voltadas para cima. Cria forte contraste tropical com o Guaimbé. Ideal para as áreas úmidas no entorno e laterais da piscina.',
+        qty: '22 unidades',
+        location: 'Piscina / Laterais Úmidas',
+        img: 'public/images/species/alocasia-macrorrhiza.webp'
+      },
+      {
+        name: 'Capim Bambu',
+        sci: 'Thysanolaena latifolia',
+        desc: 'Gramínea ornamental vigorosa de folhas largas semelhantes ao bambu. Utilizada no canteiro entre a rampa e a garagem, na frente da piscina (lateral da cozinha) e após a horta para formar maciços densos e flexíveis.',
+        qty: '55 unidades',
+        location: 'Canteiros / Bordaduras / Garagem / Cozinha',
+        img: 'public/images/species/thysanolaena-latifolia.webp'
+      },
+      {
+        name: 'Agapanthus (Tapete Azul)',
+        sci: 'Agapanthus africanus',
+        desc: 'Herbácea perene robusta de folhagem linear escura que forma maciços densos. Produz hastes florais globulares em azul-violeta durante o verão. Forma um tapete na base das árvores frutíferas nos fundos.',
+        qty: '25 m² (~625 mudas)',
+        location: 'Fundo / Canteiros de Destaque',
+        img: 'public/images/species/agapanthus-africanus.webp'
+      },
+      {
+        name: 'Jabuticabeira',
+        sci: 'Plinia cauliflora',
+        desc: 'Árvore frutífera nativa de copa arredondada e tronco liso escultural de tom cinzento. Seus frutos pretos e doces brotam diretamente do tronco e galhos. Destacada no centro do pátio como o grande ponto focal do meio da casa.',
+        qty: '1 unidade',
+        location: 'Ponto Central / Pátio da Casa',
+        img: 'public/images/species/plinia-cauliflora.webp'
+      },
+      {
+        name: 'Dinheiro em Penca',
+        sci: 'Callisia repens',
+        desc: 'Pequena forração de folhas miúdas e suculentas. Forma um tapete verde rasteiro e denso de traçado orgânico, cobrindo a terra ao redor da Jabuticabeira e das pedras decorativas do pátio central.',
+        qty: 'A definir (sugerido 10 bandejas)',
+        location: 'Ponto Central (Forração da Jabuticabeira)',
+        img: 'public/images/species/callisia-repens.webp'
+      },
+      {
+        name: 'Gerânio',
+        sci: 'Pelargonium sp.',
+        desc: 'Herbácea florífera de ramos pendentes repleta de inflorescências circulares de tons vibrantes. Enfeita as jardineiras curvas na entrada e as laterais inclinadas da rampa de acesso da garagem.',
+        qty: 'A representar',
+        location: 'Jardineiras Garagem / Laterais Rampa',
+        img: 'public/images/species/pelargonium-sp.webp'
+      },
+      {
+        name: 'Jasmim Laranja / Murta',
+        sci: 'Murraya paniculata',
+        desc: 'Arbusto grande com folhas verde-escuras cerosas e flores brancas delicadas que emitem forte perfume cítrico de flor de laranjeira. Alocado no final da rampa de garagem e nas divisas de passagem da casa e piscina.',
+        qty: 'A representar',
+        location: 'Final da Rampa / Divisa Casa-Piscina',
+        img: 'public/images/species/murraya-paniculata.webp'
+      },
+      {
+        name: 'Nandina',
+        sci: 'Nandina domestica',
+        desc: 'Arbusto de folhagem leve e fina cujos ramos terminais ganham coloração vermelho-tijolo e rosada no inverno. Pontua os canteiros próximos ao fogo de chão e nas bordaduras adjacentes à horta.',
+        qty: 'A representar',
+        location: 'Fogo de Chão / Próximo à Horta',
+        img: 'public/images/species/nandina-domestica.webp'
+      },
+      {
+        name: 'Gardênia',
+        sci: 'Gardenia jasminoides',
+        desc: 'Arbusto lenhoso de folhagem brilhante e flores brancas aveludadas muito perfumadas. Posicionado nos canteiros baixos da área de convivência (Fogo de Chão) e em vasos decorativos sob o pergolado.',
+        qty: 'A representar',
+        location: 'Fogo de Chão / Vasos Pergolado',
+        img: 'public/images/species/gardenia-jasminoides.webp'
+      },
+      {
+        name: 'Alecrim',
+        sci: 'Salvia rosmarinus',
+        desc: 'Planta arbustiva aromática de sabor marcante, cultivada em vasos cerâmicos na varanda do pergolado. Resistente ao sol pleno, oferece perfume e temperos frescos ao alcance das mãos.',
+        qty: 'A representar',
+        location: 'Varanda / Pergolado (Vasos)',
+        img: 'public/images/species/salvia-rosmarinus.webp'
+      },
+      {
+        name: 'Cipó de São João',
+        sci: 'Pyrostegia venusta',
+        desc: 'Trepadeira vigorosa e nativa que floresce em densos cachos cor de laranja brilhante no inverno. Fixada em telas nos muros do fundo e na lateral direita, criando uma barreira verde de privacidade e cor.',
+        qty: '55 mudas (muro fundo) + 55m lineares',
+        location: 'Muro Fundo / Muro Lateral Direita',
+        img: 'public/images/species/pyrostegia-venusta.webp'
+      },
+      {
+        name: 'Cipó Rosa',
+        sci: 'Podranea ricasoliana',
+        desc: 'Trepadeira vigorosa com grandes flores rosadas em forma de sino que aparecem no outono e verão. Intercalada com o Cipó de São João na tela de arame nos muros das laterais, garantindo flores de estações alternadas.',
+        qty: 'A representar',
+        location: 'Muros (Intercalada com Cipó de São João)',
+        img: 'public/images/species/podranea-ricasoliana.webp'
+      },
+      {
+        name: 'Falsa Vinha',
+        sci: 'Cissus rhombifolia',
+        desc: 'Trepadeira rústica de folhagem escura que recobre alvenarias com aderência suave por ventosas (sem gavinhas agressivas). Perfeita para os trechos de muro que recebem menos sol.',
+        qty: 'A representar',
+        location: 'Muros (Sombreamento)',
+        img: 'public/images/species/cissus-rhombifolia.webp'
+      },
+      {
+        name: 'Dama da Noite',
+        sci: 'Cestrum nocturnum',
+        desc: 'Arbusto perene cujas flores tubulares pequenas e discretas exalam um perfume adocicado intenso e característico durante o período noturno. Posicionada em vasos médios no pergolado.',
+        qty: 'A representar',
+        location: 'Pergolado (Vasos)',
+        img: 'public/images/species/cestrum-nocturnum.webp'
+      },
+      {
+        name: 'Pata de Elefante',
+        sci: 'Beaucarnea recurvata',
+        desc: 'Planta de crescimento lento com tronco escultural dilatado na base e folhas lineares recurvadas. Cultivada em grande vaso decorativo no pergolado como ponto focal de destaque da varanda.',
+        qty: 'A representar',
+        location: 'Pergolado (Vaso Central)',
+        img: 'public/images/species/beaucarnea-recurvata.webp'
+      },
+      {
+        name: 'Bananeira',
+        sci: 'Musa spp.',
+        desc: 'Frutífera tropical de folhagem larga e majestosa. Cobre as divisas do fundo no pomar linear, trazendo privacidade e produção abundante de frutos de sabor doce.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/musa-spp.webp'
+      },
+      {
+        name: 'Pitangueira',
+        sci: 'Eugenia uniflora',
+        desc: 'Árvore frutífera nativa e decorativa, de copa densa e folhas verde-esmeralda brilhantes que se avermelham no outono. Produz pitangas doces e vermelhas no pomar e em vaso no pergolado.',
+        qty: '2 unidades',
+        location: 'Fundo (Pomar) / Pergolado (Vaso)',
+        img: 'public/images/species/eugenia-uniflora.webp'
+      },
+      {
+        name: 'Figueira',
+        sci: 'Ficus carica',
+        desc: 'Frutífera de clima temperado perfeitamente adaptada. Apresenta galhos tortuosos cinzentos de grande valor visual e folhas ásperas. Produz figos saborosos no pomar.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/ficus-carica.webp'
+      },
+      {
+        name: 'Cerejeira do Rio Grande',
+        sci: 'Eugenia involucrata',
+        desc: 'Bela frutífera nativa de tronco ereto, de cor canela liso e descamante. Suas flores brancas dão lugar a saborosas cerejas vermelhas alongadas muito disputadas pelos pássaros.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/eugenia-involucrata.webp'
+      },
+      {
+        name: 'Limoeiro Siciliano',
+        sci: 'Citrus limon',
+        desc: 'Árvore cítrica perfumada e de pequeno porte que produz limões sicilianos de casca amarela grossa e aromática. Traz o charme dos quintais mediterrâneos para o pomar.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/citrus-limon.webp'
+      },
+      {
+        name: 'Cabeludinha',
+        sci: 'Eugenia tomentosa',
+        desc: 'Frutífera nativa e rara, de pequeno porte com ramos cobertos de penugem amarela. Seus frutos amarelos redondos são cobertos por uma fina penugem, com polpa adocicada de colheita direta dos galhos.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/eugenia-tomentosa.webp'
+      },
+      {
+        name: 'Mexeriqueira Ponkan',
+        sci: 'Citrus reticulata',
+        desc: 'Cítrica tradicional de copa densa que se cobre de pequenos frutos laranjas e perfumados. Produção abundante e facilidade de colheita no pomar linear dos fundos.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/citrus-reticulata.webp'
+      },
+      {
+        name: 'Romanzeira',
+        sci: 'Punica granatum',
+        desc: 'Árvore de pequeno porte com folhas estreitas e delicadas. Apresenta flores escarlates decorativas que dão lugar a romãs de casca dura avermelhada repletas de sementes suculentas.',
+        qty: '1 unidade',
+        location: 'Fundo (Pomar)',
+        img: 'public/images/species/punica-granatum.webp'
+      }
+    ];
+
+    /* ─── Renders Data ─── */
+    const RENDERS = Array.from({length: 41}, (_, i) => ({
+      src: `public/images/renders/render-${String(i + 1).padStart(2, '0')}.webp`,
+      label: `Visualização ${String(i + 1).padStart(2, '0')}`,
+      index: i
+    }));
+
+    /* ─── Build Species Grid ─── */
+    const grid = document.getElementById('species-grid');
+    SPECIES.forEach((sp, i) => {
+      const delay = (i % 3) * 0.08;
+      const card = document.createElement('article');
+      card.className = 'species-card fade-in';
+      card.style.transitionDelay = delay + 's';
+      card.innerHTML = `
+        <img
+          class="species-card-img"
+          src="${sp.img}"
+          alt="${sp.name}"
+          loading="lazy"
+          onerror="this.outerHTML='<div class=\\'species-card-img-placeholder\\'>🌿<span class=\\'species-card-img-placeholder-span\\'>Aguardando foto</span></div>'"
+        />
+        <div class="species-card-body">
+          <p class="species-card-location">${sp.location}</p>
+          <h3 class="species-card-name">${sp.name}</h3>
+          <p class="species-card-sci">${sp.sci}</p>
+          <p class="species-card-desc">${sp.desc}</p>
+          <p class="species-card-qty">${sp.qty}</p>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    /* ─── Build Masonry Gallery ─── */
+    const gallery = document.getElementById('masonry-gallery');
+    RENDERS.forEach((r) => {
+      const item = document.createElement('div');
+      item.className = 'masonry-item fade-in';
+      item.dataset.index = r.index;
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', `Abrir ${r.label}`);
+      item.innerHTML = `
+        <img src="${r.src}" alt="${r.label}" loading="lazy" />
+        <div class="overlay">
+          <span class="overlay-label">${r.label}</span>
+        </div>`;
+      item.addEventListener('click', () => openLightbox(r.index));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(r.index); });
+      gallery.appendChild(item);
+    });
+
+    /* ─── Lightbox ─── */
+    const lightbox = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lightbox-img');
+    const lbCtr    = document.getElementById('lightbox-counter');
+    let lbIdx = 0;
+
+    function openLightbox(idx) {
+      lbIdx = idx;
+      updateLightbox();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightbox-close').focus();
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function updateLightbox() {
+      const r = RENDERS[lbIdx];
+      lbImg.src = r.src;
+      lbImg.alt = r.label;
+      lbCtr.textContent = `${lbIdx + 1} / ${RENDERS.length}`;
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', () => {
+      lbIdx = (lbIdx - 1 + RENDERS.length) % RENDERS.length;
+      updateLightbox();
+    });
+    document.getElementById('lightbox-next').addEventListener('click', () => {
+      lbIdx = (lbIdx + 1) % RENDERS.length;
+      updateLightbox();
+    });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + RENDERS.length) % RENDERS.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % RENDERS.length; updateLightbox(); }
+    });
+
+    /* ─── Before/After Slider ─── */
+    const rangeInput = document.getElementById('planta-range');
+    const foregroundImg = document.getElementById('planta-foreground');
+    const sliderLine = document.getElementById('planta-line');
+
+    if (rangeInput && foregroundImg && sliderLine) {
+      rangeInput.addEventListener('input', (e) => {
+        const value = e.target.value;
+        foregroundImg.style.width = value + '%';
+        sliderLine.style.left = value + '%';
+      });
+    }
+
+    /* ─── Intersection Observer: fade-in ─── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* ─── Scroll Progress Bar ─── */
+    const progressBar = document.getElementById('progress-bar');
+    function updateProgress() {
+      const scrollTop  = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    /* ─── Navbar scroll class ─── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ─── Hamburger menu ─── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── Mobile Page Navigation ─── */
+    const mobilePages = {
+      inicio:   document.getElementById('page-inicio'),
+      renders:  document.getElementById('page-renders'),
+      especies: document.getElementById('page-especies')
+    };
+    const bottomNavBtns = document.querySelectorAll('.bottom-nav-btn');
+
+    mobilePages.inicio.classList.add('active');
+    let currentPage = 'inicio';
+
+    bottomNavBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pageId = btn.dataset.page;
+        if (pageId === currentPage) return;
+
+        mobilePages[currentPage].classList.remove('active');
+        bottomNavBtns.forEach(b => b.classList.remove('active'));
+
+        mobilePages[pageId].classList.add('active');
+        btn.classList.add('active');
+        currentPage = pageId;
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        setTimeout(() => {
+          mobilePages[pageId].querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
+          });
+        }, 80);
+      });
+    });
+
+    /* ─── Hero parallax ─── */
+    const heroContent = document.getElementById('hero-content');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroContent.style.transform = `translateY(${y * 0.28}px)`;
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
