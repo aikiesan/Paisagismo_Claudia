@@ -1,0 +1,9 @@
+# Jekyll Configuration
+
+# Exclude large raw folders from the static build.
+# This prevents the GitHub Pages deploy package from being bloated.
+exclude:
+  - "Projeto_de_PaisagismoScene 40"
+  - "scratch"
+  - "reference_repo"
+  - "🌿 Projeto de Paisagismo Paulo P.docx.md"
