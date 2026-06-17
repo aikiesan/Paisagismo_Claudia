@@ -34,28 +34,30 @@ Salve as fotos das plantas nessa pasta com os seguintes **nomes exatos de arquiv
 5. **Manacá de Cheiro** (*Brunfelsia uniflora*) — `brunfelsia-uniflora.webp`
 6. **Plumeria Rubra (Flor do Caribe)** (*Plumeria rubra*) — `plumeria-rubra.webp`
 7. **Orelha de Elefante** (*Alocasia macrorrhiza*) — `alocasia-macrorrhiza.webp`
-8. **Capim Bambu** (*Thysanolaena latifolia*) — `thysanolaena-latifolia.webp`
-9. **Agapanthus** (*Agapanthus africanus*) — `agapanthus-africanus.webp`
-10. **Jabuticabeira** (*Plinia cauliflora*) — `plinia-cauliflora.webp`
-11. **Dinheiro em Penca** (*Callisia repens*) — `callisia-repens.webp`
-12. **Gerânio** (*Pelargonium sp.*) — `pelargonium-sp.webp`
-13. **Jasmim Laranja / Murta** (*Murraya paniculata*) — `murraya-paniculata.webp`
-14. **Nandina** (*Nandina domestica*) — `nandina-domestica.webp`
-15. **Gardênia** (*Gardenia jasminoides*) — `gardenia-jasminoides.webp`
-16. **Alecrim** (*Salvia rosmarinus*) — `salvia-rosmarinus.webp`
-17. **Cipó de São João** (*Pyrostegia venusta*) — `pyrostegia-venusta.webp`
-18. **Cipó Rosa** (*Podranea ricasoliana*) — `podranea-ricasoliana.webp`
-19. **Falsa Vinha** (*Cissus rhombifolia*) — `cissus-rhombifolia.webp`
-20. **Dama da Noite** (*Cestrum nocturnum*) — `cestrum-nocturnum.webp`
-21. **Pata de Elefante** (*Beaucarnea recurvata*) — `beaucarnea-recurvata.webp`
-22. **Bananeira** (*Musa spp.*) — `musa-spp.webp`
-23. **Pitangueira** (*Eugenia uniflora*) — `eugenia-uniflora.webp`
-24. **Figueira** (*Ficus carica*) — `ficus-carica.webp`
-25. **Cerejeira do Rio Grande** (*Eugenia involucrata*) — `eugenia-involucrata.webp`
-26. **Limoeiro Siciliano** (*Citrus limon*) — `citrus-limon.webp`
-27. **Cabeludinha** (*Eugenia tomentosa*) — `eugenia-tomentosa.webp`
-28. **Mexeriqueira Ponkan** (*Citrus reticulata*) — `citrus-reticulata.webp`
-29. **Romanzeira** (*Punica granatum*) — `punica-granatum.webp`
+8. **Eufóbia Fogo** (*Euphorbia cotinifolia*) — `euphorbia-cotinifolia.webp`
+9. **Capim Bambu** (*Thysanolaena latifolia*) — `thysanolaena-latifolia.webp`
+10. **Agapanthus** (*Agapanthus africanus*) — `agapanthus-africanus.webp`
+11. **Jabuticabeira** (*Plinia cauliflora*) — `plinia-cauliflora.webp`
+12. **Dinheiro em Penca** (*Callisia repens*) — `callisia-repens.webp`
+13. **Gerânio** (*Pelargonium sp.*) — `pelargonium-sp.webp`
+14. **Jasmim do Poeta** (*Jasminum polyanthum*) — `jasminum-polyanthum.webp`
+15. **Jasmim Sambaqui** (*Jasminum sambac*) — `jasminum-sambac.webp`
+16. **Nandina** (*Nandina domestica*) — `nandina-domestica.webp`
+17. **Gardênia** (*Gardenia jasminoides*) — `gardenia-jasminoides.webp`
+18. **Alecrim** (*Salvia rosmarinus*) — `salvia-rosmarinus.webp`
+19. **Cipó de São João** (*Pyrostegia venusta*) — `pyrostegia-venusta.webp`
+20. **Cipó Rosa** (*Podranea ricasoliana*) — `podranea-ricasoliana.webp`
+21. **Falsa Vinha** (*Cissus rhombifolia*) — `cissus-rhombifolia.webp`
+22. **Dama da Noite** (*Cestrum nocturnum*) — `cestrum-nocturnum.webp`
+23. **Pata de Elefante** (*Beaucarnea recurvata*) — `beaucarnea-recurvata.webp`
+24. **Bananeira** (*Musa spp.*) — `musa-spp.webp`
+25. **Pitangueira** (*Eugenia uniflora*) — `eugenia-uniflora.webp`
+26. **Figueira** (*Ficus carica*) — `ficus-carica.webp`
+27. **Cerejeira do Rio Grande** (*Eugenia involucrata*) — `eugenia-involucrata.webp`
+28. **Limoeiro Siciliano** (*Citrus limon*) — `citrus-limon.webp`
+29. **Cabeludinha** (*Eugenia tomentosa*) — `eugenia-tomentosa.webp`
+30. **Mexeriqueira Ponkan** (*Citrus reticulata*) — `citrus-reticulata.webp`
+31. **Romanzeira** (*Punica granatum*) — `punica-granatum.webp`
 
 *Nota: Se uma foto estiver ausente, a página exibirá automaticamente um ícone de folha (🌿) de fallback.*
 

@@ -18,7 +18,7 @@
 | Peticispema (Boldo) | *Plectranthus barbatus* | Arbusto medicinal / Aromático |
 | Charuto | *Sanchezia nobilis* | Arbusto de folhagem listrada |
 | Pleomele verde | *Dracaena reflexa* 'Green' | Arbusto ereto / Folhagem brilhante |
-| Jasmim manga | *Murraya paniculata* | Arbusto / Cheiro de flor de laranjeira |
+| Jasmim Sambaqui | *Jasminum sambac* | Arbusto semi-ereto / Muito perfumado |
 | Eufobia fogo | *Euphorbia cotinifolia* | Arbusto de folhas vermelho-tijolo |
 | Orelha de elefante | *Alocasia macrorrhiza* | Folhagem tropical / Gigante |
 | Mini gardênia | *Gardenia jasminoides* 'Radicans' | Rasteira / Perfumada |
@@ -114,7 +114,7 @@ Agaphantus
 
 # **Entre a Casa e a Piscina** (Corredor de passagem)
 
-* # Jasmim manga (*Murraya paniculata*)
+* # Jasmim do poeta e Jasmim Sambaqui
 
 # **Sugestão:** Plante 3 a 4 unidades enfileiradas como cerca-viva perfumada. Mantenha a altura na linha da janela (1,5 m).
 
@@ -126,7 +126,7 @@ Agaphantus
 
 * #  Eufobia fogo
 
-* #  Jasmim manga
+* #  Jasmim do poeta e Jasmim Sambaqui
 
 * #  Pau mulato
 
@@ -240,7 +240,7 @@ Lista de Espécies, Quantidades e Localização • Versão com Pendências
 | **3** | **Metragem linear dos cipós:** Quantos metros lineares são APENAS Cipó de São João (lateral direita) e quantos metros serão INTERCALADOS (São João \+ Rosa)? | Preciso da metragem linear de **cada trecho** para calcular as quantidades exatas de mudas (regra: **1 muda a cada 1,5m** de muro). | Na lateral direita so cipó de são joao, no restante intercalar com cipó rosa  |
 | **4** | **O que é exatamente o "Muro da altura da grama"?** É um meio-fio de 10-15cm para conter terra ou uma mureta de alvenaria de 50cm? | Definir o **acabamento** (tijolo à vista, pedra, concreto aparente). Lembrar que a casa é tijolo à vista – sugiro manter o mesmo padrão. | E um alicerce que vai servir de arrimo para nivelar o terreno, feito de alvenaria. Ele ficara nivelado com o gramado |
 | **5** | **Piso na área da piscina** (onde antes era grama): Vai ser o MESMO material da rampa de entrada e da pedra da piscina? | Confirmar para eu alinhar o orçamento de pisos, o caimento para drenagem e a integração visual com o paisagismo ao redor. | Ainda não definido |
-| **6** | **Espécies antigas NÃO MENCIONADAS agora:** Gerânio, Germânia, Capim Bambu (Liriope), Jasmim Manga, Nandina, Gardênia, Alecrim, etc. Devem ser descartadas ou mantidas em algum local? | Se descartar, removo da planilha final. Se manter em áreas específicas, me diga onde (ex: Jasmim Manga entre casa e piscina? Gardênia nos vasos do pergolado?). | Gerânio jardineiras curva na entrada da garagem e nas laterais da rampa da garagem  Capim bambu entrada entre a rampa e a garagem, frente da piscina lateral direita perto da cozinha e depois da horta  Jasmim manga, endrada final da rampa a direita, entre a casa e a piscina, entre a piscina e o muro Nandina perto do fogo de chao e perto da horta Gardebia fogo de chao  Alecrim vaso na varanda  |
+| **6** | **Espécies antigas NÃO MENCIONADAS agora:** Gerânio, Germânia, Capim Bambu (Liriope), Jasmim Manga, Nandina, Gardênia, Alecrim, etc. Devem ser descartadas ou mantidas em algum local? | Se descartar, removo da planilha final. Se manter em áreas específicas, me diga onde (ex: Jasmim Manga entre casa e piscina? Gardênia nos vasos do pergolado?). | Gerânio jardineiras curva na entrada da garagem e nas laterais da rampa da garagem  Capim bambu entrada entre a rampa e a garagem, frente da piscina lateral direita perto da cozinha e depois da horta  Jasmim do poeta e Jasmim Sambaqui, entrada final da rampa a direita, entre a casa e a piscina, entre a piscina e o muro Nandina perto do fogo de chao e perto da horta Gardebia fogo de chao  Alecrim vaso na varanda  |
 | **7** | **Irrigação:** Com 85 Guaimbés \+ 22 Orelhas de elefante \+ 55 Estrelícias, o consumo de água é altíssimo. Vai instalar **gotejamento automático** ou será rega manual? | Se for gotejamento, preciso incluir na lista de materiais (tubos, gotejadores, temporizador, válvulas). Se for manual, calcular o tempo de rega diário. | Irrigação automatizada |
 | **8** | **Iluminação paisagística:** Haverá holofotes ou arandelas para destacar as árvores (Pau Mulato, Plumeria) ou os canteiros de Agapanthus e Estrelícias? | Se sim, preciso projetar os pontos de luz, a bitola dos cabos e a posição dos transformadores (se for 12V). Impacta diretamente nas valas e no projeto elétrico. | Sim haverá iluminação  |
 
